@@ -2,6 +2,12 @@ import Foundation
 import CoreMotion
 let sensorsUpdateInterval = 1.0 / 50.0
 
+struct MotionData {
+    let gyroX: Double
+    let gyroY: Double
+    let gyroZ: Double
+}
+
 class MotionDataRecorder {
     let motionManager = CMMotionManager()
     let motionDataQueue = OperationQueue()
@@ -18,6 +24,9 @@ class MotionDataRecorder {
     }
     
     func startMotionUpdates() {
+        
+
+        
         if motionManager.isDeviceMotionAvailable {
             self.motionManager.deviceMotionUpdateInterval = sensorsUpdateInterval
             csvWriter = CSVFileWriter(with: csvFileURL(), header: header)
@@ -29,6 +38,8 @@ class MotionDataRecorder {
                         let userAcceleration = validData.userAcceleration
                         let gyroData = validData.rotationRate
                         let csvString = "\(gyroData.x),\(gyroData.y),\(gyroData.z),\(userAcceleration.x),\(userAcceleration.y),\(userAcceleration.z)\n"
+                        
+                        let motionData = MotionData(gyroX: gyroData.x, gyroY: gyroData.y, gyroZ: gyroData.z)
                         
                         print(csvString)
                         // Use the motion data in your app.
