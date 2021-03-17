@@ -11,7 +11,7 @@ import CoreML
 class ActivityHelper {
     
     func isSquatting(input: Input) -> Bool {
-        let activityClassificationModel = WorkoutActivityClassifier()
+        let activityClassificationModel = WorkoutActivityClassifierV2()
         var currentIndexInPredictionWindow = 0
 
         let accelDataX = try! MLMultiArray(shape: [input.accX] as [NSNumber], dataType: MLMultiArrayDataType.double)

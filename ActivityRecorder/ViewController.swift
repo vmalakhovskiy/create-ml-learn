@@ -7,7 +7,7 @@ class ViewController: UIViewController {
     @IBOutlet var countLabel: UILabel!
     
     let motionDataRecorder = MotionDataRecorder()
-    let model = try! WorkoutActivityClassifier(configuration: MLModelConfiguration())
+    let model = try! WorkoutActivityClassifierV2(configuration: MLModelConfiguration())
     
     @IBAction func startRecording() {
         let stateInLength = 400
