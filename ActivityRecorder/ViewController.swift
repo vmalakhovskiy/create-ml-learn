@@ -50,15 +50,17 @@ class ViewController: UIViewController {
                 print(modelPrediction.label)
                 
                 DispatchQueue.main.async {
-                    if modelPrediction.label == "squat" {
+                    if modelPrediction.label == "squats" {
                         self?.counter += 1
                         
                         if self?.counter == 1 {
                             self?.countLabel.text = "uno squat 💪"
                         } else if self?.counter == 2  {
                             self?.countLabel.text = "dos squatos 🏋️‍♀️"
-                        } else {
+                        } else if self!.counter < 10 {
                             self?.countLabel.text = String(self!.counter) + " squats"
+                        } else {
+                            self?.countLabel.text = String(self!.counter) + " squats 🎉"
                         }
                         
                         self?.blackLabel.text = "great, that was a squat"

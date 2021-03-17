@@ -43,7 +43,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p05-Kw-L2e" userLabel="0">
-                                <rect key="frame" x="32" y="565.5" width="44" height="76.5"/>
+                                <rect key="frame" x="32" y="565.5" width="350" height="76.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="64"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -55,6 +55,7 @@
                             <constraint firstItem="yHG-T7-EYZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-32" id="9Bt-Iw-wF4"/>
                             <constraint firstItem="Ctb-1H-a2K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="154" id="9pp-RO-LBP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ctb-1H-a2K" secondAttribute="trailing" constant="32" id="FZm-iH-I4T"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p05-Kw-L2e" secondAttribute="trailing" constant="32" id="FvM-uW-pcQ"/>
                             <constraint firstItem="yHG-T7-EYZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="J6S-tM-7IX"/>
                             <constraint firstItem="u4q-Ui-Kwj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="MHQ-FK-K69"/>
                             <constraint firstItem="yHG-T7-EYZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="OWm-T8-hl8"/>
@@ -63,6 +64,7 @@
                             <constraint firstItem="yHG-T7-EYZ" firstAttribute="top" secondItem="p05-Kw-L2e" secondAttribute="bottom" constant="128" id="kPP-el-8xZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u4q-Ui-Kwj" secondAttribute="trailing" constant="32" id="kQH-oq-p8X"/>
                             <constraint firstItem="Ctb-1H-a2K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="tKR-Um-7S9"/>
+                            <constraint firstItem="p05-Kw-L2e" firstAttribute="top" relation="greaterThanOrEqual" secondItem="u4q-Ui-Kwj" secondAttribute="bottom" constant="32" id="wjS-3j-pIs"/>
                             <constraint firstItem="p05-Kw-L2e" firstAttribute="leading" secondItem="u4q-Ui-Kwj" secondAttribute="leading" id="xfP-QN-DR1"/>
                         </constraints>
                     </view>
