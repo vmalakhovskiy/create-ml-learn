@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startRecording() {
+        let stateInLength = 400
+        var stateOutput = try! MLMultiArray(shape:[stateInLength as NSNumber], dataType: .double)
+        
         if motionDataRecorder.recoring {
             motionDataRecorder.stopMotionUpdates()
             startRecordButton.titleLabel?.text = "begin squating"
@@ -31,11 +34,11 @@ class ViewController: UIViewController {
                     rotation_x: data.rotationDataX,
                     rotation_y: data.rotationDataY,
                     rotation_z: data.rotationDataZ,
-                    stateIn: data.stateOutput
+                    stateIn: stateOutput
                 )
                 
                 //shsould be returned to MotionDataRecorder
-                let output = modelPrediction.stateOut
+                stateOutput = modelPrediction.stateOut
                 
                 print(modelPrediction.label)
 
