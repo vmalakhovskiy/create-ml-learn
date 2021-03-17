@@ -9,6 +9,7 @@ struct MotionData {
 }
 
 class MotionDataRecorder {
+    var motions = [MotionData]()
     let motionManager = CMMotionManager()
     let motionDataQueue = OperationQueue()
     let header = "rotation_x,rotation_y,rotation_z,acceleration_x,acceleration_y,acceleration_z\n"
@@ -40,6 +41,7 @@ class MotionDataRecorder {
                         let csvString = "\(gyroData.x),\(gyroData.y),\(gyroData.z),\(userAcceleration.x),\(userAcceleration.y),\(userAcceleration.z)\n"
                         
                         let motionData = MotionData(gyroX: gyroData.x, gyroY: gyroData.y, gyroZ: gyroData.z)
+                        self.motions.append(motionData)
                         
                         print(csvString)
                         // Use the motion data in your app.
