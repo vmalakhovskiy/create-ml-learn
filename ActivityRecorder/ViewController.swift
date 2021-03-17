@@ -4,16 +4,10 @@ import CoreML
 class ViewController: UIViewController {
 
     @IBOutlet var startRecordButton: UIButton!
-    @IBOutlet var stopRecordButton: UIButton!
-
+    @IBOutlet var countLabel: UILabel!
+    
     let motionDataRecorder = MotionDataRecorder()
     let model = try! WorkoutActivityClassifier(configuration: MLModelConfiguration())
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        startRecordButton.isHidden = false
-        stopRecordButton.isHidden = true
-    }
     
     @IBAction func startRecording() {
         let stateInLength = 400
@@ -21,11 +15,10 @@ class ViewController: UIViewController {
         
         if motionDataRecorder.recoring {
             motionDataRecorder.stopMotionUpdates()
-            startRecordButton.titleLabel?.text = "begin squating"
+            startRecordButton.setTitle("begin squating", for: .normal)
         } else {
             motionDataRecorder.startMotionUpdates { [weak self] data in
                 guard let strongSelf = self else { return }
-                print()
                 
                 let modelPrediction = try! strongSelf.model.prediction(
                     acceleration_x: data.accelDataX,
@@ -43,7 +36,7 @@ class ViewController: UIViewController {
                 print(modelPrediction.label)
 
             }
-            startRecordButton.titleLabel?.text = "stop squatting"
+            startRecordButton.setTitle("i can't do any more", for: .normal)
         }
     }
     
