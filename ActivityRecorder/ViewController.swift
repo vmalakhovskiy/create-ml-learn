@@ -47,7 +47,7 @@ class ViewController: UIViewController {
                 //shsould be returned to MotionDataRecorder
                 stateOutput = modelPrediction.stateOut
                 
-                print(modelPrediction.label)
+                print(modelPrediction.labelProbability)
                 
                 DispatchQueue.main.async {
                     if modelPrediction.label == "squats" {
