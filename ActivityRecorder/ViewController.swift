@@ -7,6 +7,7 @@ class ViewController: UIViewController {
     @IBOutlet var blackLabel: UILabel!
     @IBOutlet var grayLabel: UILabel!
     @IBOutlet var countLabel: UILabel!
+    var counter = 0
     
     let motionDataRecorder = MotionDataRecorder()
     let model = try! WorkoutActivityClassifier(configuration: MLModelConfiguration())
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
             startRecordButton.setTitle("begin squating", for: .normal)
             blackLabel.text = "let's start again"
             grayLabel.text = "do squats."
+            counter = 0
             startRecordButton.backgroundColor = .black
             countLabel.isHidden = true
         } else {
@@ -49,6 +51,16 @@ class ViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     if modelPrediction.label == "squat" {
+                        self?.counter += 1
+                        
+                        if self?.counter == 1 {
+                            self?.countLabel.text = "uno squat 💪"
+                        } else if self?.counter == 2  {
+                            self?.countLabel.text = "dos squatos 🏋️‍♀️"
+                        } else {
+                            self?.countLabel.text = String(self!.counter) + " squats"
+                        }
+                        
                         self?.blackLabel.text = "great, that was a squat"
                         self?.grayLabel.text = "do one more."
                     } else {
@@ -58,9 +70,6 @@ class ViewController: UIViewController {
                     
                     self?.view.layoutIfNeeded()
                 }
-                
-
-
             }
             startRecordButton.setTitle("i can't do any more", for: .normal)
             startRecordButton.backgroundColor = .red
