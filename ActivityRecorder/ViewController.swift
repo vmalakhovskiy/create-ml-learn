@@ -4,10 +4,18 @@ import CoreML
 class ViewController: UIViewController {
 
     @IBOutlet var startRecordButton: UIButton!
+    @IBOutlet var blackLabel: UILabel!
+    @IBOutlet var grayLabel: UILabel!
     @IBOutlet var countLabel: UILabel!
     
     let motionDataRecorder = MotionDataRecorder()
     let model = try! WorkoutActivityClassifier(configuration: MLModelConfiguration())
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        countLabel.isHidden = true
+        startRecordButton.layer.cornerRadius = 30
+    }
     
     @IBAction func startRecording() {
         let stateInLength = 400
@@ -16,6 +24,10 @@ class ViewController: UIViewController {
         if motionDataRecorder.recoring {
             motionDataRecorder.stopMotionUpdates()
             startRecordButton.setTitle("begin squating", for: .normal)
+            blackLabel.text = "let's start again"
+            grayLabel.text = "do squats."
+            startRecordButton.backgroundColor = .black
+            countLabel.isHidden = true
         } else {
             motionDataRecorder.startMotionUpdates { [weak self] data in
                 guard let strongSelf = self else { return }
@@ -34,9 +46,25 @@ class ViewController: UIViewController {
                 stateOutput = modelPrediction.stateOut
                 
                 print(modelPrediction.label)
+                
+                DispatchQueue.main.async {
+                    if modelPrediction.label == "squat" {
+                        self?.blackLabel.text = "great, that was a squat"
+                        self?.grayLabel.text = "do one more."
+                    } else {
+                        self?.blackLabel.text = "what was that..."
+                        self?.grayLabel.text = "you are supposed to do squats, not " + modelPrediction.label + "."
+                    }
+                    
+                    self?.view.layoutIfNeeded()
+                }
+                
+
 
             }
             startRecordButton.setTitle("i can't do any more", for: .normal)
+            startRecordButton.backgroundColor = .red
+            countLabel.isHidden = false
         }
     }
     
