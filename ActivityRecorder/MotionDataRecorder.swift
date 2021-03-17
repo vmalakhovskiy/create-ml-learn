@@ -10,7 +10,6 @@ struct MotionData {
     let rotationDataX: MLMultiArray
     let rotationDataY: MLMultiArray
     let rotationDataZ: MLMultiArray
-    let stateOutput: MLMultiArray
 }
 
 class MotionDataRecorder {
@@ -18,7 +17,6 @@ class MotionDataRecorder {
     struct ModelConstants {
         static let predictionWindowSize = 30
         static let sensorsUpdateInterval = 1.0 / 50.0
-        static let stateInLength = 400
     }
     
     let motionManager = CMMotionManager()
@@ -28,7 +26,6 @@ class MotionDataRecorder {
     init() {
         motionManager.accelerometerUpdateInterval = TimeInterval(ModelConstants.sensorsUpdateInterval)
         motionManager.gyroUpdateInterval = TimeInterval(ModelConstants.sensorsUpdateInterval)
-        
     }
     
     func startMotionUpdates(handler: @escaping (MotionData) -> ()) {
@@ -37,15 +34,13 @@ class MotionDataRecorder {
             
             var currentIndexInPredictionWindow = 0
             
-            let accelDataX = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: MLMultiArrayDataType.double)
-            let accelDataY = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: MLMultiArrayDataType.double)
-            let accelDataZ = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: MLMultiArrayDataType.double)
+            let accelDataX = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: .double)
+            let accelDataY = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: .double)
+            let accelDataZ = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: .double)
             
-            let rotationDataX = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: MLMultiArrayDataType.double)
-            let rotationDataY = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: MLMultiArrayDataType.double)
-            let rotationDataZ = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: MLMultiArrayDataType.double)
-            
-            var stateOutput = try! MLMultiArray(shape:[ModelConstants.stateInLength as NSNumber], dataType: MLMultiArrayDataType.double)
+            let rotationDataX = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: .double)
+            let rotationDataY = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: .double)
+            let rotationDataZ = try! MLMultiArray(shape: [ModelConstants.predictionWindowSize] as [NSNumber], dataType: .double)
             
             self.motionManager.deviceMotionUpdateInterval = sensorsUpdateInterval
             
@@ -73,8 +68,7 @@ class MotionDataRecorder {
                                     accelDataZ: accelDataZ,
                                     rotationDataX: rotationDataX,
                                     rotationDataY: rotationDataY,
-                                    rotationDataZ: rotationDataZ,
-                                    stateOutput: stateOutput
+                                    rotationDataZ: rotationDataZ
                                 )
                             )
                             currentIndexInPredictionWindow = 0

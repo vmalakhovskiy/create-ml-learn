@@ -29,15 +29,6 @@
                                     <action selector="startRecording" destination="BYZ-38-t0r" eventType="touchUpInside" id="4vI-xq-FJH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUs-rZ-00m">
-                                <rect key="frame" x="336" y="79" width="46" height="30"/>
-                                <state key="normal" title="restart">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="clearData" destination="BYZ-38-t0r" eventType="touchUpInside" id="0IC-xd-33e"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="one more squat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctb-1H-a2K">
                                 <rect key="frame" x="32" y="198" width="240.5" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
@@ -50,33 +41,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaF-of-Ks5">
-                                <rect key="frame" x="251" y="104" width="131" height="30"/>
-                                <state key="normal" title="i can't do any more">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p05-Kw-L2e" userLabel="0">
+                                <rect key="frame" x="32" y="291" width="22.5" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NaF-of-Ks5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="40e-UR-XL7"/>
                             <constraint firstItem="yHG-T7-EYZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-32" id="9Bt-Iw-wF4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pUs-rZ-00m" secondAttribute="trailing" constant="32" id="CbH-Oe-pbx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NaF-of-Ks5" secondAttribute="trailing" constant="32" id="GrQ-uT-syY"/>
+                            <constraint firstItem="Ctb-1H-a2K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="154" id="9pp-RO-LBP"/>
                             <constraint firstItem="yHG-T7-EYZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="J6S-tM-7IX"/>
                             <constraint firstItem="u4q-Ui-Kwj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="MHQ-FK-K69"/>
                             <constraint firstItem="yHG-T7-EYZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="OWm-T8-hl8"/>
+                            <constraint firstItem="p05-Kw-L2e" firstAttribute="top" secondItem="u4q-Ui-Kwj" secondAttribute="bottom" constant="8" id="VRF-bK-ITF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yHG-T7-EYZ" secondAttribute="trailing" constant="32" id="Xd0-ng-aLo"/>
-                            <constraint firstItem="Ctb-1H-a2K" firstAttribute="top" secondItem="NaF-of-Ks5" secondAttribute="bottom" constant="64" id="aqH-jD-XC4"/>
                             <constraint firstItem="u4q-Ui-Kwj" firstAttribute="top" secondItem="Ctb-1H-a2K" secondAttribute="bottom" constant="8" id="hXO-g7-mit"/>
-                            <constraint firstItem="pUs-rZ-00m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="jtt-hO-Xjv"/>
                             <constraint firstItem="Ctb-1H-a2K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="tKR-Um-7S9"/>
+                            <constraint firstItem="p05-Kw-L2e" firstAttribute="leading" secondItem="u4q-Ui-Kwj" secondAttribute="leading" id="xfP-QN-DR1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countLabel" destination="p05-Kw-L2e" id="jND-Ri-CBK"/>
                         <outlet property="startRecordButton" destination="yHG-T7-EYZ" id="82c-Kx-jSV"/>
-                        <outlet property="stopRecordButton" destination="NaF-of-Ks5" id="wow-zG-N7S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
