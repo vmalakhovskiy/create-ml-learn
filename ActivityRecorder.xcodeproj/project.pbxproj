@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E570004E260223B300F7F65D /* WorkoutActivityClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E570004D260223B300F7F65D /* WorkoutActivityClassifier.mlmodel */; };
 		E7DDA3FA25D148DD004F60E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA3F925D148DD004F60E5 /* AppDelegate.swift */; };
 		E7DDA3FC25D148DD004F60E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA3FB25D148DD004F60E5 /* SceneDelegate.swift */; };
 		E7DDA3FE25D148DD004F60E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA3FD25D148DD004F60E5 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E570004D260223B300F7F65D /* WorkoutActivityClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WorkoutActivityClassifier.mlmodel; sourceTree = "<group>"; };
 		E7DDA3F625D148DD004F60E5 /* ActivityRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DDA3F925D148DD004F60E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7DDA3FB25D148DD004F60E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				E7DDA40425D148DF004F60E5 /* LaunchScreen.storyboard */,
 				E7DDA40725D148DF004F60E5 /* Info.plist */,
 				E7DDA43F25D29F5F004F60E5 /* Localizable.stringsdict */,
+				E570004D260223B300F7F65D /* WorkoutActivityClassifier.mlmodel */,
 			);
 			path = ActivityRecorder;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				E7DDA3FE25D148DD004F60E5 /* ViewController.swift in Sources */,
 				E7DDA42E25D25711004F60E5 /* MotionDataRecorder.swift in Sources */,
 				E7DDA3FA25D148DD004F60E5 /* AppDelegate.swift in Sources */,
+				E570004E260223B300F7F65D /* WorkoutActivityClassifier.mlmodel in Sources */,
 				E7DDA3FC25D148DD004F60E5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
