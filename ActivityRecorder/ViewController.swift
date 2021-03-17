@@ -18,6 +18,8 @@ class ViewController: UIViewController {
         startRecordButton.layer.cornerRadius = 30
     }
     
+    var lastAction: String?
+    
     @IBAction func startRecording() {
         let stateInLength = 400
         var stateOutput = try! MLMultiArray(shape:[stateInLength as NSNumber], dataType: .double)
@@ -50,13 +52,19 @@ class ViewController: UIViewController {
                 
                 print(modelPrediction.label)
                 
-                if(modelPrediction.label == "squat") {
-                    self?.counter += 1
+                if let lastAction = self?.lastAction {
+                    if(lastAction != "squat" || lastAction != "lunge") {
+                        if(modelPrediction.label == "squat" || modelPrediction.label == "lunge") {
+                            self?.counter += 1
+                        }
+                    }
                 }
+                
+                self?.lastAction = modelPrediction.label
                 
                 DispatchQueue.main.async {
                     if modelPrediction.label == "squats" {
-                        self?.counter += 1
+                        //self?.counter += 1
                         
                         if self?.counter == 1 {
                             self?.countLabel.text = "uno squat 💪"
