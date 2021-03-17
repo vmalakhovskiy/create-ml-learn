@@ -64,7 +64,6 @@ class ViewController: UIViewController {
                 
                 print(modelPrediction.label)
                 
-                self?.lastAction = modelPrediction.label
                 
                 DispatchQueue.main.async {
                     if self?.enumerateSquat(action: modelPrediction.label) == true {
@@ -91,6 +90,8 @@ class ViewController: UIViewController {
                         self?.blackLabel.text = "what was that..."
                         self?.grayLabel.text = "you are supposed to do squats, stop " + modelPrediction.label + "."
                     }
+                    
+                    self?.lastAction = modelPrediction.label
                     
                     self?.view.layoutIfNeeded()
                 }
