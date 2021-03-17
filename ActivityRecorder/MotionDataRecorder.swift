@@ -1,6 +1,3 @@
-
-//
-
 import Foundation
 import CoreMotion
 let sensorsUpdateInterval = 1.0 / 50.0

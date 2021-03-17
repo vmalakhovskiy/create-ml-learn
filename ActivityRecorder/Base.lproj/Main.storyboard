@@ -26,7 +26,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="startRecording" destination="BYZ-38-t0r" eventType="touchUpInside" id="HBK-vm-Xes"/>
+                                    <action selector="startRecording" destination="BYZ-38-t0r" eventType="touchUpInside" id="4vI-xq-FJH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUs-rZ-00m">
@@ -35,7 +35,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="clearTrainingData" destination="BYZ-38-t0r" eventType="touchUpInside" id="R8K-Rv-UIv"/>
+                                    <action selector="clearData" destination="BYZ-38-t0r" eventType="touchUpInside" id="0IC-xd-33e"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="one more squat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctb-1H-a2K">
@@ -55,9 +55,6 @@
                                 <state key="normal" title="i can't do any more">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="stopRecording" destination="BYZ-38-t0r" eventType="touchUpInside" id="d0o-5E-pSE"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
