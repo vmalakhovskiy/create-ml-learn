@@ -8,6 +8,7 @@ class ViewController: UIViewController {
     @IBOutlet var grayLabel: UILabel!
     @IBOutlet var countLabel: UILabel!
     var counter = 0
+    var updated = false
     
     let motionDataRecorder = MotionDataRecorder()
     let model = try! WorkoutActivityClassifierV2(configuration: MLModelConfiguration())
@@ -67,6 +68,10 @@ class ViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     if self?.enumerateSquat(action: modelPrediction.label) == true {
+                        if self?.updated == true {
+                            return
+                        }
+                        self?.updated = true
                         self?.counter += 1
                         
                         if self?.counter == 1 {
@@ -82,6 +87,7 @@ class ViewController: UIViewController {
                         self?.blackLabel.text = "great, that was a squat"
                         self?.grayLabel.text = "do one more."
                     } else {
+                        self?.updated = false
                         self?.blackLabel.text = "what was that..."
                         self?.grayLabel.text = "you are supposed to do squats, stop " + modelPrediction.label + "."
                     }
