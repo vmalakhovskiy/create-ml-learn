@@ -6,7 +6,7 @@ class ViewController: UIViewController {
     @IBOutlet var startRecordButton: UIButton!
     @IBOutlet var stopRecordButton: UIButton!
 
-    var motionDataRecorder: MotionDataRecorder?
+    let motionDataRecorder = MotionDataRecorder()
 //    let model = WorkoutActivityClassifier()
     
     override func viewDidLoad() {
@@ -16,46 +16,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startRecording() {
-        let activityName = "activity"
-        let recorder = MotionDataRecorder()
-        recorder.startMotionUpdates { data in
-            print(data)
-        }
-        motionDataRecorder = recorder
-        
-        startRecordButton.isHidden = true
-        stopRecordButton.isHidden = false
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + Double(5)) {
-            self.stopRecording()
+        if motionDataRecorder.recoring {
+            motionDataRecorder.stopMotionUpdates()
+            startRecordButton.titleLabel?.text = "begin squating"
+        } else {
+            motionDataRecorder.startMotionUpdates { data in
+                print(data)
+            }
+            startRecordButton.titleLabel?.text = "stop squatting"
         }
     }
-    
-    func stopRecording() {
-        guard let recorder = motionDataRecorder else {
-            return
-        }
-        recorder.stopMotionUpdates()
-        startRecordButton.isHidden = false
-        stopRecordButton.isHidden = true
-        
-        motionDataRecorder?.stopMotionUpdates()
-        
-//        guard let motions = motionDataRecorder?.motions else { return }
-//        let rotation_x = motions.map(\.gyroX)
-//        let rotation_y = motions.map(\.gyroY)
-//        let rotation_z = motions.map(\.gyroZ)
-//        do {
-//         let result = try model.prediction(
-//            rotation_x: MLMultiArray(rotation_x), rotation_y: MLMultiArray(rotation_y),
-//            rotation_z: MLMultiArray(rotation_z), stateIn: MLMultiArray([1])
-//         )
-//            print(result.labelProbability)
-//        } catch {
-//            print("error")
-//        }
-    }
-
     
     @IBAction func clearData() {
 //        MotionDataRecorder.clearTrainingData()

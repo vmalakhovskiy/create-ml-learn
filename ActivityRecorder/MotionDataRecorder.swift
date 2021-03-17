@@ -14,10 +14,11 @@ struct MotionData {
 class MotionDataRecorder {
     let motionManager = CMMotionManager()
     let motionDataQueue = OperationQueue()
-   
+   var recoring = false
     
     func startMotionUpdates(handler: @escaping (MotionData) -> ()) {
         if motionManager.isDeviceMotionAvailable {
+            recoring = true
             self.motionManager.deviceMotionUpdateInterval = sensorsUpdateInterval
             
             self.motionManager.startDeviceMotionUpdates(
@@ -43,6 +44,7 @@ class MotionDataRecorder {
     
     func stopMotionUpdates() {
         if motionManager.isDeviceMotionActive {
+            recoring = false
             motionManager.stopDeviceMotionUpdates()
         }
     }
