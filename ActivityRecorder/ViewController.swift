@@ -67,7 +67,7 @@ class ViewController: UIViewController {
                         self?.grayLabel.text = "do one more."
                     } else {
                         self?.blackLabel.text = "what was that..."
-                        self?.grayLabel.text = "you are supposed to do squats, not " + modelPrediction.label + "."
+                        self?.grayLabel.text = "you are supposed to do squats, stop " + modelPrediction.label + "."
                     }
                     
                     self?.view.layoutIfNeeded()
