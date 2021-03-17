@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E570004E260223B300F7F65D /* WorkoutActivityClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E570004D260223B300F7F65D /* WorkoutActivityClassifier.mlmodel */; };
 		E570006926022C9B00F7F65D /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = E570006826022C9B00F7F65D /* Input.swift */; };
 		E570006E26022CA900F7F65D /* ActivityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E570006D26022CA900F7F65D /* ActivityHelper.swift */; };
+		E5D0DB7226025A98003922FE /* WorkoutActivityClassifierV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E5D0DB7126025A98003922FE /* WorkoutActivityClassifierV2.mlmodel */; };
 		E7DDA3FA25D148DD004F60E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA3F925D148DD004F60E5 /* AppDelegate.swift */; };
 		E7DDA3FC25D148DD004F60E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA3FB25D148DD004F60E5 /* SceneDelegate.swift */; };
 		E7DDA3FE25D148DD004F60E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA3FD25D148DD004F60E5 /* ViewController.swift */; };
@@ -41,9 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E570004D260223B300F7F65D /* WorkoutActivityClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WorkoutActivityClassifier.mlmodel; sourceTree = "<group>"; };
 		E570006826022C9B00F7F65D /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		E570006D26022CA900F7F65D /* ActivityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHelper.swift; sourceTree = "<group>"; };
+		E5D0DB7126025A98003922FE /* WorkoutActivityClassifierV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WorkoutActivityClassifierV2.mlmodel; sourceTree = "<group>"; };
 		E7DDA3F625D148DD004F60E5 /* ActivityRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DDA3F925D148DD004F60E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7DDA3FB25D148DD004F60E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 				E7DDA40425D148DF004F60E5 /* LaunchScreen.storyboard */,
 				E7DDA40725D148DF004F60E5 /* Info.plist */,
 				E7DDA43F25D29F5F004F60E5 /* Localizable.stringsdict */,
-				E570004D260223B300F7F65D /* WorkoutActivityClassifier.mlmodel */,
+				E5D0DB7126025A98003922FE /* WorkoutActivityClassifierV2.mlmodel */,
 				E570006826022C9B00F7F65D /* Input.swift */,
 				E570006D26022CA900F7F65D /* ActivityHelper.swift */,
 			);
@@ -279,11 +279,11 @@
 			files = (
 				E570006926022C9B00F7F65D /* Input.swift in Sources */,
 				E7DDA43325D25BEC004F60E5 /* CSVFileWriter.swift in Sources */,
+				E5D0DB7226025A98003922FE /* WorkoutActivityClassifierV2.mlmodel in Sources */,
 				E7DDA3FE25D148DD004F60E5 /* ViewController.swift in Sources */,
 				E7DDA42E25D25711004F60E5 /* MotionDataRecorder.swift in Sources */,
 				E570006E26022CA900F7F65D /* ActivityHelper.swift in Sources */,
 				E7DDA3FA25D148DD004F60E5 /* AppDelegate.swift in Sources */,
-				E570004E260223B300F7F65D /* WorkoutActivityClassifier.mlmodel in Sources */,
 				E7DDA3FC25D148DD004F60E5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,7 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K923Y7RZ24;
+				DEVELOPMENT_TEAM = 25946FSZU5;
 				INFOPLIST_FILE = ActivityRecorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

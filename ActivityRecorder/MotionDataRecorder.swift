@@ -15,7 +15,7 @@ struct MotionData {
 class MotionDataRecorder {
     
     struct ModelConstants {
-        static let predictionWindowSize = 30
+        static let predictionWindowSize = 50
         static let sensorsUpdateInterval = 1.0 / 50.0
     }
     
