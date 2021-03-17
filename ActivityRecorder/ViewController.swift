@@ -7,6 +7,7 @@ class ViewController: UIViewController {
     @IBOutlet var stopRecordButton: UIButton!
 
     var motionDataRecorder: MotionDataRecorder?
+//    let model = WorkoutActivityClassifier()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +17,10 @@ class ViewController: UIViewController {
     
     @IBAction func startRecording() {
         let activityName = "activity"
-        let recorder = MotionDataRecorder(with: activityName)
-        recorder.startMotionUpdates()
+        let recorder = MotionDataRecorder()
+        recorder.startMotionUpdates { data in
+            print(data)
+        }
         motionDataRecorder = recorder
         
         startRecordButton.isHidden = true
@@ -38,23 +41,23 @@ class ViewController: UIViewController {
         
         motionDataRecorder?.stopMotionUpdates()
         
-        guard let motions = motionDataRecorder?.motions else { return }
-        let rotation_x = motions.map(\.gyroX)
-        let rotation_y = motions.map(\.gyroY)
-        let rotation_z = motions.map(\.gyroZ)
-        do {
-         let result = try model.prediction(
-            rotation_x: MLMultiArray(rotation_x), rotation_y: MLMultiArray(rotation_y),
-            rotation_z: MLMultiArray(rotation_z), stateIn: MLMultiArray([1])
-         )
-            print(result.labelProbability)
-        } catch {
-            print("error")
-        }
+//        guard let motions = motionDataRecorder?.motions else { return }
+//        let rotation_x = motions.map(\.gyroX)
+//        let rotation_y = motions.map(\.gyroY)
+//        let rotation_z = motions.map(\.gyroZ)
+//        do {
+//         let result = try model.prediction(
+//            rotation_x: MLMultiArray(rotation_x), rotation_y: MLMultiArray(rotation_y),
+//            rotation_z: MLMultiArray(rotation_z), stateIn: MLMultiArray([1])
+//         )
+//            print(result.labelProbability)
+//        } catch {
+//            print("error")
+//        }
     }
 
     
     @IBAction func clearData() {
-        MotionDataRecorder.clearTrainingData()
+//        MotionDataRecorder.clearTrainingData()
     }
 }
