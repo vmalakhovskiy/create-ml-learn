@@ -28,7 +28,8 @@ class ViewController: UIViewController {
             blackLabel.text = "let's start again"
             grayLabel.text = "do squats."
             counter = 0
-            startRecordButton.backgroundColor = .black
+            countLabel.text = ""
+            startRecordButton.backgroundColor = .label
             countLabel.isHidden = true
         } else {
             motionDataRecorder.startMotionUpdates { [weak self] data in
