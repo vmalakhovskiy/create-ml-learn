@@ -20,6 +20,17 @@ class ViewController: UIViewController {
     
     var lastAction: String?
     
+    func enumerateSquat(action: String) -> Bool {
+        if let lastAction = lastAction {
+            if(lastAction != "squats" || lastAction != "lunge") {
+                if(action == "squats" || action == "lunge") {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
     @IBAction func startRecording() {
         let stateInLength = 400
         var stateOutput = try! MLMultiArray(shape:[stateInLength as NSNumber], dataType: .double)
@@ -52,19 +63,11 @@ class ViewController: UIViewController {
                 
                 print(modelPrediction.label)
                 
-                if let lastAction = self?.lastAction {
-                    if(lastAction != "squat" || lastAction != "lunge") {
-                        if(modelPrediction.label == "squat" || modelPrediction.label == "lunge") {
-                            self?.counter += 1
-                        }
-                    }
-                }
-                
                 self?.lastAction = modelPrediction.label
                 
                 DispatchQueue.main.async {
-                    if modelPrediction.label == "squats" {
-                        //self?.counter += 1
+                    if self?.enumerateSquat(action: modelPrediction.label) == true {
+                        self?.counter += 1
                         
                         if self?.counter == 1 {
                             self?.countLabel.text = "uno squat 💪"
